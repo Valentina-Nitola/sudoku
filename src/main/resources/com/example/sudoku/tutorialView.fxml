@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/tutorialViewSudoku.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="68.0" layoutY="162.0" text="COMO JUGAR">
+         <font>
+            <Font name="Arial" size="60.0" />
+         </font>
+      </Label>
+      <Accordion layoutX="557.0" layoutY="62.0" prefHeight="662.0" prefWidth="600.0">
+        <panes>
+          <TitledPane animated="false" style="-fx-background-color: white;" text="Bienvenido a Sudoku">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="258.0">
+                     <children>
+                        <TextFlow layoutX="33.0" layoutY="317.0" prefHeight="65.0" prefWidth="533.0" textAlignment="CENTER">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tu objetivo es completar la cuadricula 6x6 llenando las celdas vacias con numeros de 1 al 6" textAlignment="CENTER" wrappingWidth="486.50390625">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </TextFlow>
+                        <ImageView fitHeight="226.0" fitWidth="258.0" layoutX="33.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/ejemploSinResolver.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="230.0" fitWidth="230.0" layoutX="336.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/ejemploResuelto.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="86.0" fitWidth="67.0" layoutX="266.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/flecha.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+            </content>
+               <font>
+                  <Font size="30.0" />
+               </font>
+          </TitledPane>
+          <TitledPane animated="false" text="Reglas">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="226.0" fitWidth="258.0" layoutX="33.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/ejemploResueltoRegla.png" />
+                           </image>
+                        </ImageView>
+                        <TextFlow layoutX="340.0" layoutY="292.0" prefHeight="65.0" prefWidth="221.0" textAlignment="CENTER">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usando logica, puedes encontrar celdas donde solo es posible un numero. Paso a paso podras llenar mas numeros." textAlignment="CENTER" wrappingWidth="486.50390625">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </TextFlow>
+                        <Accordion prefHeight="111.0" prefWidth="600.0" />
+                        <ImageView fitHeight="226.0" fitWidth="258.0" layoutX="337.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/ejemploResueltoRegla2.png" />
+                           </image>
+                        </ImageView>
+                        <TextFlow layoutX="36.0" layoutY="319.0" prefHeight="65.0" prefWidth="221.0" textAlignment="CENTER">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cada fila, columna y caja debe contener cada numero del 1 al 9 solo una vez." textAlignment="CENTER" wrappingWidth="486.50390625">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </AnchorPane>
+            </content>
+               <font>
+                  <Font size="30.0" />
+               </font>
+          </TitledPane>
+          <TitledPane animated="false" text="Como jugar">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="294.0" fitWidth="223.0" layoutX="189.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/ejemploSinResolverComoJugar.png" />
+                           </image>
+                        </ImageView>
+                        <TextFlow layoutX="128.0" layoutY="345.0" prefHeight="107.0" prefWidth="342.0" textAlignment="CENTER">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Para ingresar un numero, selecciona la celda y haz clic en el boton del numero." textAlignment="CENTER" wrappingWidth="486.50390625">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </TextFlow>
+                     </children></AnchorPane>
+            </content>
+               <font>
+                  <Font size="30.0" />
+               </font>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <Button layoutX="-14.0" layoutY="577.0" mnemonicParsing="false" prefHeight="133.0" prefWidth="396.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="198.0" fitWidth="556.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/comenzarBTN.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
