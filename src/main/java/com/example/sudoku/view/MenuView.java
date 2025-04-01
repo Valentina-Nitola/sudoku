@@ -12,7 +12,7 @@ public class MenuView extends Stage {
 
     public MenuView() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                HelloApplication.class.getResource("menuView.fxml")
+                HelloApplication.class.getResource("/com/example/sudoku/view/menuView.fxml")
         );
         Scene scene = new Scene(fxmlLoader.load());
         this.controller = fxmlLoader.getController();

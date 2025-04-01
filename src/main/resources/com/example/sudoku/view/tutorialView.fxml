@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="800.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/tutorialViewSudoku.png" />
+            <Image url="@../img/tutorialViewSudoku.png" />
          </image>
       </ImageView>
       <Label layoutX="68.0" layoutY="162.0" text="COMO JUGAR">
@@ -40,17 +40,17 @@
                         </TextFlow>
                         <ImageView fitHeight="226.0" fitWidth="258.0" layoutX="33.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/ejemploSinResolver.png" />
+                              <Image url="@../img/ejemploSinResolver.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="230.0" fitWidth="230.0" layoutX="336.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/ejemploResuelto.png" />
+                              <Image url="@../img/ejemploResuelto.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="86.0" fitWidth="67.0" layoutX="266.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/flecha.png" />
+                              <Image url="@../img/flecha.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -66,7 +66,7 @@
                      <children>
                         <ImageView fitHeight="226.0" fitWidth="258.0" layoutX="33.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/ejemploResueltoRegla.png" />
+                              <Image url="@../img/ejemploResueltoRegla.png" />
                            </image>
                         </ImageView>
                         <TextFlow layoutX="340.0" layoutY="292.0" prefHeight="65.0" prefWidth="221.0" textAlignment="CENTER">
@@ -81,7 +81,7 @@
                         <Accordion prefHeight="111.0" prefWidth="600.0" />
                         <ImageView fitHeight="226.0" fitWidth="258.0" layoutX="337.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/ejemploResueltoRegla2.png" />
+                              <Image url="@../img/ejemploResueltoRegla2.png" />
                            </image>
                         </ImageView>
                         <TextFlow layoutX="36.0" layoutY="319.0" prefHeight="65.0" prefWidth="221.0" textAlignment="CENTER">
@@ -106,7 +106,7 @@
                      <children>
                         <ImageView fitHeight="294.0" fitWidth="223.0" layoutX="189.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/ejemploSinResolverComoJugar.png" />
+                              <Image url="@../img/ejemploSinResolverComoJugar.png" />
                            </image>
                         </ImageView>
                         <TextFlow layoutX="128.0" layoutY="345.0" prefHeight="107.0" prefWidth="342.0" textAlignment="CENTER">
@@ -130,7 +130,7 @@
          <graphic>
             <ImageView fitHeight="198.0" fitWidth="556.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/comenzarBTN.png" />
+                  <Image url="@../img/comenzarBTN.png" />
                </image>
             </ImageView>
          </graphic>
