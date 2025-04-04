@@ -126,9 +126,9 @@
           </TitledPane>
         </panes>
       </Accordion>
-      <Button layoutX="-14.0" layoutY="577.0" mnemonicParsing="false" prefHeight="133.0" prefWidth="396.0" style="-fx-background-color: transparent;">
+      <Button layoutX="16.0" layoutY="563.0" mnemonicParsing="false" prefHeight="168.0" prefWidth="483.0" style="-fx-background-color: transparent;">
          <graphic>
-            <ImageView fitHeight="198.0" fitWidth="556.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/comenzarBTN.png" />
                </image>

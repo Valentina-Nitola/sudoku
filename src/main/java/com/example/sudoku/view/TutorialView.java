@@ -2,6 +2,7 @@ package com.example.sudoku.view;
 import com.example.sudoku.controller.TutorialController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -11,7 +12,7 @@ import java.io.IOException;
  * @author Valentina Nitola
  * @version 1.0.
  */
-public class TutorialView {
+public class TutorialView extends Stage {
     /**
      * Controlador asociado a la vista del tutorial.
      */

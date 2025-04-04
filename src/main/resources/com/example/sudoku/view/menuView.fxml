@@ -12,7 +12,7 @@
             <Image url="@../img/menuViewSudoku.png" />
          </image>
       </ImageView>
-      <Button layoutX="364.0" layoutY="514.0" mnemonicParsing="false" prefHeight="173.0" prefWidth="474.0" style="-fx-background-color: transparent;">
+      <Button layoutX="364.0" layoutY="514.0" mnemonicParsing="false" onAction="#iniciarjuego" prefHeight="173.0" prefWidth="474.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="186.0" fitWidth="446.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -21,11 +21,20 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="854.0" layoutY="520.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="150.0" style="-fx-background-color: transparent;">
+      <Button layoutX="838.0" layoutY="522.0" mnemonicParsing="false" onAction="#iniciartutorial" prefHeight="158.0" prefWidth="150.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/tutorialBTN.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="musicButton" layoutX="206.0" layoutY="522.0" mnemonicParsing="false" onAction="#musica" prefHeight="158.0" prefWidth="150.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/onBTN.png" />
                </image>
             </ImageView>
          </graphic>
