@@ -3,6 +3,7 @@ package com.example.sudoku.controller;
 import com.example.sudoku.model.Music;
 import com.example.sudoku.view.TutorialView;
 import com.example.sudoku.view.JuegoView;
+import com.example.sudoku.view.MenuView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -33,8 +34,8 @@ public class MenuController {
      */
     @FXML
     public void initialize() {
-        Music.getInstance(); // Inicia la música automáticamente
-        actualizarBotonMusica(); // Establece el ícono correcto en el botón
+        Music.getInstance();
+        actualizarBotonMusica();
     }
 
     /**
@@ -82,6 +83,7 @@ public class MenuController {
     private void iniciarjuego(ActionEvent event) throws IOException {
         System.out.println("Iniciar juego");
         JuegoView juegoView = JuegoView.getInstance();
+        MenuView.getInstance().close();
         juegoView.show();
     }
 
@@ -95,6 +97,7 @@ public class MenuController {
     private void iniciartutorial(ActionEvent event) throws IOException {
         System.out.println("Iniciar tutorial");
         TutorialView tutorialView = TutorialView.getInstance();
+        MenuView.getInstance().close();
         tutorialView.show();
     }
 }
