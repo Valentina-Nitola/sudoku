@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="552.0" fitWidth="1056.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/juegoView.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER" layoutX="117.0" layoutY="403.0" spacing="20.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/onBTN.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/resetBTN.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/pistaBTN.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/checkBTN.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/tutorialBTN.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <GridPane gridLinesVisible="true" layoutX="295.0" layoutY="59.0" prefHeight="300.0" prefWidth="300.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="427.0" minWidth="10.0" prefWidth="427.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="427.0" minWidth="10.0" prefWidth="425.0" />
+           <ColumnConstraints hgrow="SOMETIMES" maxWidth="427.0" minWidth="10.0" prefWidth="425.0" />
+           <ColumnConstraints hgrow="SOMETIMES" maxWidth="427.0" minWidth="10.0" prefWidth="425.0" />
+           <ColumnConstraints hgrow="SOMETIMES" maxWidth="427.0" minWidth="10.0" prefWidth="425.0" />
+           <ColumnConstraints hgrow="SOMETIMES" maxWidth="427.0" minWidth="10.0" prefWidth="425.0" />
+
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField prefHeight="65.0" prefWidth="66.0" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="1" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="2" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="3" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="4" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="5" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.rowIndex="1" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.rowIndex="2" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.rowIndex="3" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.rowIndex="4" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.rowIndex="5" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <TextField prefHeight="65.0" prefWidth="66.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

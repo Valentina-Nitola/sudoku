@@ -64,8 +64,8 @@ public class MenuController {
         if (imgURL != null) {
             Image img = new Image(imgURL.toString());
             ImageView imageView = new ImageView(img);
-            imageView.setFitWidth(142); // Tamaño ajustado al diseño
-            imageView.setFitHeight(150);
+            imageView.setFitWidth(90);
+            imageView.setFitHeight(90);
             musicButton.setGraphic(imageView);
         } else {
             System.out.println("No se encontró la imagen: " + imgPath);

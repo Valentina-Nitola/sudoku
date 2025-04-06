@@ -4,40 +4,45 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="752.0" prefWidth="1202.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sudoku.controller.MenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sudoku.controller.MenuController">
    <children>
-      <ImageView fitHeight="752.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="569.0" fitWidth="885.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/menuViewSudoku.png" />
          </image>
       </ImageView>
-      <Button layoutX="364.0" layoutY="514.0" mnemonicParsing="false" onAction="#iniciarjuego" prefHeight="173.0" prefWidth="474.0" style="-fx-background-color: transparent;">
-         <graphic>
-            <ImageView fitHeight="186.0" fitWidth="446.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/comenzarBTN.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="838.0" layoutY="522.0" mnemonicParsing="false" onAction="#iniciartutorial" prefHeight="158.0" prefWidth="150.0" style="-fx-background-color: transparent;">
-         <graphic>
-            <ImageView fitHeight="150.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/tutorialBTN.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="musicButton" layoutX="206.0" layoutY="522.0" mnemonicParsing="false" onAction="#musica" prefHeight="158.0" prefWidth="150.0" style="-fx-background-color: transparent;">
-         <graphic>
-            <ImageView fitHeight="150.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/onBTN.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+      <HBox layoutX="197.0" layoutY="384.0">
+         <children>
+            <Button fx:id="musicButton" mnemonicParsing="false" onAction="#musica" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/onBTN.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#iniciarjuego" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="100.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/comenzarBTN.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#iniciartutorial" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/tutorialBTN.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
