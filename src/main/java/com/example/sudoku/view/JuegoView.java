@@ -24,7 +24,7 @@ public class JuegoView extends Stage {
      */
     public JuegoView() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                HelloApplication.class.getResource("/com/example/sudoku/view/menuView.fxml")
+                HelloApplication.class.getResource("/com/example/sudoku/view/juegoView.fxml")
         );
         Scene scene = new Scene(fxmlLoader.load());
         this.controller = fxmlLoader.getController();
