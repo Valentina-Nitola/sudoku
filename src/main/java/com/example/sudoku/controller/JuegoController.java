@@ -1,6 +1,8 @@
 package com.example.sudoku.controller;
 
 import com.example.sudoku.model.Music;
+import com.example.sudoku.view.AlertBox;
+import com.example.sudoku.view.JuegoView;
 import com.example.sudoku.view.MenuView;
 import com.example.sudoku.view.TutorialView;
 import javafx.event.ActionEvent;
@@ -69,6 +71,28 @@ public class JuegoController {
         TutorialView tutorialView = TutorialView.getInstance();
         MenuView.getInstance().close();
         tutorialView.show();
+    }
+
+    @FXML
+    private void reiniciarjuego(ActionEvent event) throws IOException {
+        AlertBox alertBox = new AlertBox();
+
+        boolean confirmado = alertBox.showConfirmAlertBox(
+                "Confirmar nuevo juego",
+                "¿Estás seguro de que deseas iniciar un nuevo juego?",
+                "Recuerda que se perdera el progreso"
+        );
+
+        if (confirmado) {
+            System.out.println("Iniciar juego");
+            JuegoView juegoView = JuegoView.getInstance();
+            JuegoView.getInstance().close();
+            juegoView.show();
+        } else {
+            System.out.println("La usuaria canceló el nuevo juego.");
+        }
+
+
     }
 
 }

@@ -4,6 +4,7 @@ import com.example.sudoku.model.Music;
 import com.example.sudoku.view.TutorialView;
 import com.example.sudoku.view.JuegoView;
 import com.example.sudoku.view.MenuView;
+import com.example.sudoku.view.AlertBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -81,10 +82,24 @@ public class MenuController {
      */
     @FXML
     private void iniciarjuego(ActionEvent event) throws IOException {
-        System.out.println("Iniciar juego");
-        JuegoView juegoView = JuegoView.getInstance();
-        MenuView.getInstance().close();
-        juegoView.show();
+        AlertBox alertBox = new AlertBox();
+
+        boolean confirmado = alertBox.showConfirmAlertBox(
+                "Confirmar nuevo juego",
+                "¿Estás seguro de que deseas iniciar un nuevo juego?",
+                "Recuerda leer primero las isntucciones en (?)"
+        );
+
+        if (confirmado) {
+            System.out.println("Iniciar juego");
+            JuegoView juegoView = JuegoView.getInstance();
+            MenuView.getInstance().close();
+            juegoView.show();
+        } else {
+            System.out.println("La usuaria canceló el nuevo juego.");
+        }
+
+
     }
 
     /**
