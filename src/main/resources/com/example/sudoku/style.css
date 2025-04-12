@@ -1,0 +1,13 @@
+.text-field {
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-font-size: 18px;
+}
+
+.block-top {
+    -fx-border-top-width: 2px;
+}
+
+.block-left {
+    -fx-border-left-width: 2px;
+}

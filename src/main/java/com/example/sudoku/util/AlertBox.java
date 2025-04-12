@@ -1,14 +1,16 @@
-package com.example.sudoku.view;
+package com.example.sudoku.util;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 
 import java.util.Optional;
+
 /**
- * Clase que implementa la interfaz AlertBoxInterface para mostrar diferentes tipos de alertas al usuario.
+ * Clase utilitaria para mostrar diferentes tipos de alertas al usuario.
  */
-public class AlertBox implements AlertBoxInterface {
+public class AlertBox {
+
     /**
      * Muestra una alerta informativa con título, encabezado y contenido.
      *
@@ -16,14 +18,14 @@ public class AlertBox implements AlertBoxInterface {
      * @param header  Encabezado del mensaje.
      * @param content Cuerpo del mensaje.
      */
-    @Override
-    public void showAlertBox(String title, String header, String content) {
+    public static void showAlertBox(String title, String header, String content) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(header);
         alert.setContentText(content);
         alert.showAndWait();
     }
+
     /**
      * Muestra una alerta de confirmación con botones personalizados (Sí / Cancelar).
      *
@@ -32,8 +34,7 @@ public class AlertBox implements AlertBoxInterface {
      * @param content Contenido de la alerta.
      * @return true si el usuario hace clic en "Sí", false si cancela.
      */
-    @Override
-    public boolean showConfirmAlertBox(String title, String header, String content) {
+    public static boolean showConfirmAlertBox(String title, String header, String content) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle(title);
         alert.setHeaderText(header);
@@ -47,5 +48,33 @@ public class AlertBox implements AlertBoxInterface {
         Optional<ButtonType> resultado = alert.showAndWait();
 
         return resultado.isPresent() && resultado.get() == botonAceptar;
+    }
+
+    /**
+     * Muestra una alerta informativa con un solo botón "OK".
+     *
+     * @param title   Título de la alerta.
+     * @param message Mensaje a mostrar.
+     */
+    public static void showInfo(String title, String message) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    /**
+     * Muestra una alerta de error con un solo botón "OK".
+     *
+     * @param title   Título de la alerta.
+     * @param message Mensaje a mostrar.
+     */
+    public static void showError(String title, String message) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

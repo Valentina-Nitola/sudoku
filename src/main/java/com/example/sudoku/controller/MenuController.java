@@ -4,7 +4,7 @@ import com.example.sudoku.model.Music;
 import com.example.sudoku.view.TutorialView;
 import com.example.sudoku.view.JuegoView;
 import com.example.sudoku.view.MenuView;
-import com.example.sudoku.view.AlertBox;
+import com.example.sudoku.util.AlertBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
