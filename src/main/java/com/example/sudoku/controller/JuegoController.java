@@ -1,55 +1,94 @@
 package com.example.sudoku.controller;
 
+import com.example.sudoku.model.Generador;
 import com.example.sudoku.model.Music;
-import com.example.sudoku.view.AlertBox;
+import com.example.sudoku.model.Pistas;
+import com.example.sudoku.model.Validacion;
+import com.example.sudoku.util.AlertBox;
 import com.example.sudoku.view.JuegoView;
 import com.example.sudoku.view.MenuView;
 import com.example.sudoku.view.TutorialView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
 
 public class JuegoController {
-    /**
-     * Botón que permite activar o desactivar la música.
-     */
-    @FXML
-    private Button musicButton;
 
-    /**
-     * Método que se ejecuta al cargar la vista del menú.
-     * Inicializa la música y actualiza el estado del botón de música.
-     */
+    @FXML private Button musicButton;
+    @FXML private GridPane gridPane;
+    private TextField[][] celdas = new TextField[6][6];
+    private int[][] solucionFinal;
+
     @FXML
     public void initialize() {
         Music.getInstance();
         actualizarBotonMusica();
+
+        int[][][] generado = Generador.generarTableroYSolucion();
+        int[][] tableroInicial = generado[0];
+        solucionFinal = generado[1];
+
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                TextField tf = new TextField();
+                tf.setPrefSize(60, 60);
+                tf.setStyle("-fx-font-size: 18; -fx-alignment: center;");
+                int valor = tableroInicial[i][j];
+
+                if (valor != 0) {
+                    tf.setText(String.valueOf(valor));
+                    tf.setEditable(false);
+                    tf.setStyle(tf.getStyle() + "-fx-background-color: #E0E0E0;");
+                }
+
+                final int fila = i;
+                final int columna = j;
+
+                tf.textProperty().addListener((obs, oldVal, newVal) -> {
+                    if (!newVal.matches("[1-6]?")) {
+                        tf.setText(oldVal);
+                        return;
+                    }
+
+                    if (!newVal.isEmpty()) {
+                        int valorIngresado = Integer.parseInt(newVal);
+                        int[][] tableroActual = obtenerTableroDesdeCeldas();
+
+                        if (!Validacion.validarEntrada(tableroActual, fila, columna, valorIngresado)) {
+                            tf.setStyle("-fx-border-color: red; -fx-text-fill: red;");
+                        } else {
+                            tf.setStyle("-fx-border-color: green; -fx-text-fill: green;");
+                        }
+                    } else {
+                        tf.setStyle(""); // Borrar estilos si se borra valor
+                    }
+                });
+
+                gridPane.add(tf, j, i);
+                celdas[i][j] = tf;
+            }
+        }
     }
 
-    /**
-     * Método que se ejecuta al hacer clic en el botón de música.
-     * Alterna entre encender y apagar la música, y actualiza la imagen del botón.
-     *
-     * @param event Evento generado al hacer clic en el botón.
-     */
-    @FXML
-    private void musica(ActionEvent event) {
-        Music.getInstance().toggleMusic();
-        actualizarBotonMusica();
+    private int[][] obtenerTableroDesdeCeldas() {
+        int[][] tablero = new int[6][6];
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                String texto = celdas[i][j].getText();
+                tablero[i][j] = texto.matches("[1-6]") ? Integer.parseInt(texto) : 0;
+            }
+        }
+        return tablero;
     }
 
-    /**
-     * Actualiza la imagen del botón de música dependiendo si la música está activada o no.
-     * Ajusta también el tamaño del ícono para mantener el diseño visual definido en Scene Builder.
-     */
     private void actualizarBotonMusica() {
         boolean isMusicOn = Music.getInstance().isMusicOn();
-
         String imgPath = isMusicOn
                 ? "/com/example/sudoku/img/onBTN.png"
                 : "/com/example/sudoku/img/offBTN.png";
@@ -61,38 +100,116 @@ public class JuegoController {
             imageView.setFitWidth(90);
             imageView.setFitHeight(90);
             musicButton.setGraphic(imageView);
-        } else {
-            System.out.println("No se encontró la imagen: " + imgPath);
         }
     }
+
     @FXML
-    private void iniciartutorial(ActionEvent event) throws IOException {
-        System.out.println("Iniciar tutorial");
-        TutorialView tutorialView = TutorialView.getInstance();
-        MenuView.getInstance().close();
-        tutorialView.show();
+    private void musica(ActionEvent event) {
+        Music.getInstance().toggleMusic();
+        actualizarBotonMusica();
+    }
+
+    @FXML
+    public void pistas(ActionEvent event) {
+        boolean dada = Pistas.darPista(celdas, solucionFinal);
+        if (!dada) {
+            AlertBox.showInfo("Pistas agotadas", "Ya has utilizado todas las pistas posibles.");
+        }
+    }
+
+    @FXML
+    public void validarTablero(ActionEvent event) {
+        boolean esCorrecto = true;
+
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                String texto = celdas[i][j].getText();
+                int valor = texto.isEmpty() ? 0 : Integer.parseInt(texto);
+
+                if (valor != solucionFinal[i][j]) {
+                    esCorrecto = false;
+                    celdas[i][j].setStyle("-fx-border-color: red;");
+                } else if (celdas[i][j].isEditable()) {
+                    celdas[i][j].setStyle("");
+                }
+            }
+        }
+
+        if (esCorrecto) {
+            AlertBox.showInfo("¡Felicidades!", "Has completado correctamente el Sudoku.");
+        } else {
+            AlertBox.showError("Error", "El tablero tiene errores o está incompleto.");
+        }
     }
 
     @FXML
     private void reiniciarjuego(ActionEvent event) throws IOException {
-        AlertBox alertBox = new AlertBox();
-
-        boolean confirmado = alertBox.showConfirmAlertBox(
+        boolean confirmado = AlertBox.showConfirmAlertBox(
                 "Confirmar nuevo juego",
                 "¿Estás seguro de que deseas iniciar un nuevo juego?",
-                "Recuerda que se perdera el progreso"
+                "Recuerda que se perderá el progreso actual."
         );
 
         if (confirmado) {
-            System.out.println("Iniciar juego");
+            Pistas.reiniciarPistas();
+
+            int[][][] generado = Generador.generarTableroYSolucion();
+            int[][] tableroInicial = generado[0];
+            solucionFinal = generado[1];
+
+            gridPane.getChildren().clear();
+
+            for (int i = 0; i < 6; i++) {
+                for (int j = 0; j < 6; j++) {
+                    TextField tf = new TextField();
+                    tf.setPrefSize(60, 60);
+                    tf.setStyle("-fx-font-size: 18; -fx-alignment: center;");
+                    int valor = tableroInicial[i][j];
+
+                    if (valor != 0) {
+                        tf.setText(String.valueOf(valor));
+                        tf.setEditable(false);
+                        tf.setStyle(tf.getStyle() + "-fx-background-color: #E0E0E0;");
+                    }
+
+                    final int fila = i;
+                    final int columna = j;
+
+                    tf.textProperty().addListener((obs, oldVal, newVal) -> {
+                        if (!newVal.matches("[1-6]?")) {
+                            tf.setText(oldVal);
+                            return;
+                        }
+
+                        if (!newVal.isEmpty()) {
+                            int valorIngresado = Integer.parseInt(newVal);
+                            int[][] tableroActual = obtenerTableroDesdeCeldas();
+
+                            if (!Validacion.validarEntrada(tableroActual, fila, columna, valorIngresado)) {
+                                tf.setStyle("-fx-border-color: red; -fx-text-fill: red;");
+                            } else {
+                                tf.setStyle("-fx-border-color: green; -fx-text-fill: green;");
+                            }
+                        } else {
+                            tf.setStyle("");
+                        }
+                    });
+
+                    gridPane.add(tf, j, i);
+                    celdas[i][j] = tf;
+                }
+            }
+
             JuegoView juegoView = JuegoView.getInstance();
             JuegoView.getInstance().close();
             juegoView.show();
-        } else {
-            System.out.println("La usuaria canceló el nuevo juego.");
         }
-
-
     }
 
+    @FXML
+    private void iniciartutorial(ActionEvent event) throws IOException {
+        TutorialView tutorialView = TutorialView.getInstance();
+        MenuView.getInstance().close();
+        tutorialView.show();
+    }
 }

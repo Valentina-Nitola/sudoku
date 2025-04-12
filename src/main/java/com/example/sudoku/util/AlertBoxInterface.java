@@ -1,4 +1,5 @@
-package com.example.sudoku.view;
+package com.example.sudoku.util;
+
 /**
  * Interfaz que define los métodos para mostrar ventanas de alerta al usuario.
  * Se utiliza para abstraer el comportamiento de las alertas informativas y de confirmación en la GUI del juego.
