@@ -102,6 +102,18 @@ public class Generador {
         return false;
     }
 
+    public static int contarNumeros6(int[][] tablero) {
+        int contador = 0;
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                if (tablero[i][j] == 6) {
+                    contador++;
+                }
+            }
+        }
+        return contador;
+    }
+
     /**
      * Genera simultáneamente un tablero con pistas y su solución correspondiente.
      * Ideal para inicializar el juego y mantener coherencia entre vista y lógica.

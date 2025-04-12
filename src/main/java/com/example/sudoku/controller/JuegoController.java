@@ -22,6 +22,8 @@ public class JuegoController {
 
     @FXML private Button musicButton;
     @FXML private GridPane gridPane;
+    @FXML private Label numero6;
+
     private TextField[][] celdas = new TextField[6][6];
     private int[][] solucionFinal;
 
@@ -30,10 +32,19 @@ public class JuegoController {
         Music.getInstance();
         actualizarBotonMusica();
 
+        // Generar tablero con solución
         int[][][] generado = Generador.generarTableroYSolucion();
         int[][] tableroInicial = generado[0];
         solucionFinal = generado[1];
 
+        // Configuramos las primeras dos filas con valores de la solución
+        for (int i = 0; i < 2; i++) {  // Para las dos primeras filas
+            for (int j = 0; j < 6; j++) {
+                tableroInicial[i][j] = solucionFinal[i][j]; // Usamos los valores de la solución para las dos primeras filas
+            }
+        }
+
+        // Configurar las celdas del tablero con los valores generados
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 TextField tf = new TextField();
@@ -41,15 +52,20 @@ public class JuegoController {
                 tf.setStyle("-fx-font-size: 18; -fx-alignment: center;");
                 int valor = tableroInicial[i][j];
 
+                // Si la celda tiene un valor predefinido (de las dos primeras filas), mostrarlo y no permitir edición
                 if (valor != 0) {
                     tf.setText(String.valueOf(valor));
                     tf.setEditable(false);
                     tf.setStyle(tf.getStyle() + "-fx-background-color: #E0E0E0;");
+                } else {
+                    // Si la celda está vacía, permitir la edición
+                    tf.setEditable(true);
                 }
 
                 final int fila = i;
                 final int columna = j;
 
+                // Listener para el cambio de texto en las celdas
                 tf.textProperty().addListener((obs, oldVal, newVal) -> {
                     if (!newVal.matches("[1-6]?")) {
                         tf.setText(oldVal);
@@ -60,20 +76,27 @@ public class JuegoController {
                         int valorIngresado = Integer.parseInt(newVal);
                         int[][] tableroActual = obtenerTableroDesdeCeldas();
 
+                        // Validar si la entrada es correcta
                         if (!Validacion.validarEntrada(tableroActual, fila, columna, valorIngresado)) {
                             tf.setStyle("-fx-border-color: red; -fx-text-fill: red;");
                         } else {
                             tf.setStyle("-fx-border-color: green; -fx-text-fill: green;");
                         }
                     } else {
-                        tf.setStyle(""); // Borrar estilos si se borra valor
+                        tf.setStyle(""); // Limpiar estilos si el valor es borrado
                     }
+
+                    // Actualizar la cantidad de números 6 al cambiar
+                    actualizarNumero6();
                 });
 
-                gridPane.add(tf, j, i);
-                celdas[i][j] = tf;
+                gridPane.add(tf, j, i); // Añadir la celda al gridPane
+                celdas[i][j] = tf; // Guardar la referencia a la celda
             }
         }
+
+        // Actualizar el contador de números 6 al iniciar
+        actualizarNumero6();
     }
 
     private int[][] obtenerTableroDesdeCeldas() {
@@ -153,12 +176,19 @@ public class JuegoController {
         if (confirmado) {
             Pistas.reiniciarPistas();
 
+            // Generar tablero con solución
             int[][][] generado = Generador.generarTableroYSolucion();
             int[][] tableroInicial = generado[0];
             solucionFinal = generado[1];
 
-            gridPane.getChildren().clear();
+            // Configuramos las primeras dos filas con valores de la solución
+            for (int i = 0; i < 2; i++) {  // Para las dos primeras filas
+                for (int j = 0; j < 6; j++) {
+                    tableroInicial[i][j] = solucionFinal[i][j]; // Usamos los valores de la solución para las dos primeras filas
+                }
+            }
 
+            // Configurar las celdas del tablero con los valores generados
             for (int i = 0; i < 6; i++) {
                 for (int j = 0; j < 6; j++) {
                     TextField tf = new TextField();
@@ -166,15 +196,20 @@ public class JuegoController {
                     tf.setStyle("-fx-font-size: 18; -fx-alignment: center;");
                     int valor = tableroInicial[i][j];
 
+                    // Si la celda tiene un valor predefinido (de las dos primeras filas), mostrarlo y no permitir edición
                     if (valor != 0) {
                         tf.setText(String.valueOf(valor));
                         tf.setEditable(false);
                         tf.setStyle(tf.getStyle() + "-fx-background-color: #E0E0E0;");
+                    } else {
+                        // Si la celda está vacía, permitir la edición
+                        tf.setEditable(true);
                     }
 
                     final int fila = i;
                     final int columna = j;
 
+                    // Listener para el cambio de texto en las celdas
                     tf.textProperty().addListener((obs, oldVal, newVal) -> {
                         if (!newVal.matches("[1-6]?")) {
                             tf.setText(oldVal);
@@ -185,18 +220,22 @@ public class JuegoController {
                             int valorIngresado = Integer.parseInt(newVal);
                             int[][] tableroActual = obtenerTableroDesdeCeldas();
 
+                            // Validar si la entrada es correcta
                             if (!Validacion.validarEntrada(tableroActual, fila, columna, valorIngresado)) {
                                 tf.setStyle("-fx-border-color: red; -fx-text-fill: red;");
                             } else {
                                 tf.setStyle("-fx-border-color: green; -fx-text-fill: green;");
                             }
                         } else {
-                            tf.setStyle("");
+                            tf.setStyle(""); // Limpiar estilos si el valor es borrado
                         }
+
+                        // Actualizar la cantidad de números 6 al cambiar
+                        actualizarNumero6();
                     });
 
-                    gridPane.add(tf, j, i);
-                    celdas[i][j] = tf;
+                    gridPane.add(tf, j, i); // Añadir la celda al gridPane
+                    celdas[i][j] = tf; // Guardar la referencia a la celda
                 }
             }
 
@@ -211,5 +250,11 @@ public class JuegoController {
         TutorialView tutorialView = TutorialView.getInstance();
         MenuView.getInstance().close();
         tutorialView.show();
+    }
+
+    private void actualizarNumero6() {
+        int[][] tableroActual = obtenerTableroDesdeCeldas();
+        int cantidad6 = Generador.contarNumeros6(tableroActual); // Método en el modelo Generador
+        numero6.setText("Números 6: " + cantidad6);  // Actualiza el texto del Label
     }
 }
